@@ -15,6 +15,7 @@ async function bootstrap() {
     .setTitle('Product CRUD API')
     .setDescription('API para cadastro e gerenciamento de produtos')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
