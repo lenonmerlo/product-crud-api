@@ -1,98 +1,144 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+﻿# Product CRUD API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+API RESTful para cadastro e gerenciamento de produtos, desenvolvida como teste tecnico.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+![CI](https://github.com/lenonmerlo/product-crud-api/actions/workflows/build.yml/badge.svg)
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=flat&logo=nestjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=flat&logo=prisma&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=flat&logo=cloudinary&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=flat&logo=jsonwebtokens&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=swagger&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
 
-## Description
+## Tecnologias
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **NestJS** - framework Node.js
+- **TypeScript** - tipagem estatica
+- **Prisma ORM** - acesso ao banco de dados
+- **PostgreSQL** - banco de dados relacional
+- **Cloudinary** - armazenamento de imagens
+- **JWT + Passport** - autenticacao
+- **Swagger** - documentacao interativa
+- **GitHub Actions** - CI/CD
 
-## Project setup
+## Funcionalidades
 
-```bash
-$ npm install
-```
+- CRUD completo de produtos
+- Upload de imagem via Cloudinary
+- Listagem com produtos ativos em destaque
+- Paginacao na listagem
+- Validacao em multiplos niveis (DTO, service e banco)
+- Cadastro e autenticacao de usuarios com JWT
+- Rotas de produtos protegidas por autenticacao
+- Documentacao interativa via Swagger
+- CI com GitHub Actions
 
-## Compile and run the project
+## Como rodar localmente
 
-```bash
-# development
-$ npm run start
+### Pre-requisitos
 
-# watch mode
-$ npm run start:dev
+- Node.js 22+
+- PostgreSQL
+- Conta no Cloudinary
 
-# production mode
-$ npm run start:prod
-```
-
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Instalacao
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+# Clone o repositorio
+git clone https://github.com/lenonmerlo/product-crud-api.git
+cd product-crud-api
+
+# Instale as dependencias
+npm install
+
+# Configure as variaveis de ambiente
+cp .env.example .env
+# Preencha o .env com suas credenciais
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### Variaveis de ambiente
 
-## Resources
+```env
+DATABASE_URL="postgresql://user:password@localhost:5432/lippaus_db"
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+JWT_SECRET=
+PORT=3333
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+### Rodando
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```bash
+# Gerar o Prisma Client
+npx prisma generate
 
-## Support
+# Rodar as migrations
+npx prisma migrate dev
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+# Iniciar em modo desenvolvimento
+npm run start:dev
+```
 
-## Stay in touch
+## Documentacao
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Com o servidor rodando, acesse a documentacao interativa:
 
-## License
+```
+http://localhost:3333/api
+```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## Autenticacao
+
+A API utiliza JWT. Para acessar os endpoints de produtos:
+
+1. Crie uma conta em `POST /auth/register`
+2. Faca login em `POST /auth/login` e copie o `accessToken`
+3. No Swagger, clique em **Authorize** e cole o token
+
+## Endpoints
+
+### Auth
+
+| Metodo | Rota           | Descricao                    |
+| ------ | -------------- | ---------------------------- |
+| POST   | /auth/register | Cadastrar usuario            |
+| POST   | /auth/login    | Login e geracao de token JWT |
+
+### Products (requer autenticacao)
+
+| Metodo | Rota                | Descricao                                   |
+| ------ | ------------------- | ------------------------------------------- |
+| POST   | /products           | Criar produto                               |
+| GET    | /products           | Listar produtos (ativos primeiro, paginado) |
+| GET    | /products/:id       | Buscar produto por ID                       |
+| PUT    | /products/:id       | Atualizar produto                           |
+| DELETE | /products/:id       | Deletar produto                             |
+| POST   | /products/:id/image | Upload de imagem                            |
+
+### Health
+
+| Metodo | Rota | Descricao    |
+| ------ | ---- | ------------ |
+| GET    | /    | Health check |
+
+## Estrutura do projeto
+
+```
+src/
+├── auth/               # Modulo de autenticacao
+│   ├── dto/
+│   ├── auth.controller.ts
+│   ├── auth.module.ts
+│   ├── auth.service.ts
+│   ├── jwt-auth.guard.ts
+│   └── jwt.strategy.ts
+├── common/
+│   └── filters/        # Exception filters globais
+├── prisma/             # Modulo do Prisma
+├── products/           # Modulo de produtos
+│   └── dto/
+└── upload/             # Modulo de upload de imagem
+```
