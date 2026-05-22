@@ -7,6 +7,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { Prisma } from '@prisma/client';
+import { PaginationQueryDto } from './dto/pagination-query.dto';
 
 @Injectable()
 export class ProductsService {
@@ -28,10 +29,24 @@ export class ProductsService {
     }
   }
 
-  async findAll() {
-    return await this.prisma.product.findMany({
-      orderBy: { status: 'desc' },
-    });
+  async findAll(query: PaginationQueryDto) {
+    const page = query.page ?? 1;
+    const limit = query.limit ?? 10;
+    const skip = (page - 1) * limit;
+
+    const [data, total] = await Promise.all([
+      this.prisma.product.findMany({
+        orderBy: { status: 'desc' },
+        skip,
+        take: limit,
+      }),
+      this.prisma.product.count(),
+    ]);
+
+    return {
+      data,
+      meta: { total, page, limit, totalPages: Math.ceil(total / limit) },
+    };
   }
 
   async findOne(id: string) {
