@@ -7,7 +7,6 @@ import {
 import { Prisma } from '@prisma/client';
 import { Request, Response } from 'express';
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
 @Catch(Prisma.PrismaClientKnownRequestError)
 export class PrismaExceptionFilter implements ExceptionFilter {
   catch(exception: Prisma.PrismaClientKnownRequestError, host: ArgumentsHost) {
