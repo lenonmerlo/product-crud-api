@@ -40,6 +40,7 @@ O projeto cobre:
 - CRUD de produtos protegido por autenticacao
 - upload de imagem de produto com Cloudinary
 - listagem paginada com ordenacao priorizando produtos ativos
+- seed inicial de produtos para ambiente de desenvolvimento
 - pipeline de build em GitHub Actions
 - deploy em Railway com healthcheck
 
@@ -115,6 +116,7 @@ cp .env.example .env
 ```bash
 npx prisma generate
 npx prisma migrate dev
+npx prisma db seed
 npm run start:dev
 ```
 
@@ -161,9 +163,14 @@ npx prisma generate
 # criar/aplicar migration em dev
 npx prisma migrate dev
 
+# popular dados iniciais (seed)
+npx prisma db seed
+
 # aplicar migrations em producao
 npx prisma migrate deploy
 ```
+
+O comando de seed esta configurado em `prisma.config.ts` e executa `prisma/seed.ts`.
 
 Modelos principais:
 
